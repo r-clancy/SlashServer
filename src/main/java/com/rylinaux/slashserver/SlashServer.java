@@ -9,7 +9,7 @@ public class SlashServer extends Plugin {
     @Override
     public void onEnable() {
         for (String server : this.getProxy().getServers().keySet()) {
-            this.getProxy().getPluginManager().registerCommand(this, new SlashServerCommand(server, String.format("ss.%s", server)));
+            this.getProxy().getPluginManager().registerCommand(this, new SlashServerCommand(server, "ss." + server));
         }
     }
 
