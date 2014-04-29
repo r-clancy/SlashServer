@@ -8,20 +8,7 @@
     <artifactId>slashserver</artifactId>
     <version>1.0.1</version>
 
-    <build>
-        <finalName>SlashServer</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <inceptionYear>2014</inceptionYear>
 
     <repositories>
         <repository>
@@ -37,5 +24,39 @@
             <version>1.7-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>SlashServer</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>1.6</version>
+                <configuration>
+                    <licenseName>mit</licenseName>
+                    <licenseResolver>${project.baseUri}/license</licenseResolver>
+                    <organizationName>${artifactId}</organizationName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>first</id>
+                        <goals>
+                            <goal>update-file-header</goal>
+                        </goals>
+                        <phase>process-sources</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
