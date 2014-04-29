@@ -10,8 +10,20 @@ import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
+/**
+ * Command for quickly switching between servers.
+ *
+ * @author rylinaux
+ */
 public class SlashServerCommand extends Command {
 
+    /**
+     * Construct the object.
+     *
+     * @param name the name of the command
+     * @param permission the permission of the command
+     * @param aliases the aliases of the command
+     */
     public SlashServerCommand(String name, String permission, String... aliases) {
         super(name, permission, aliases);
     }
@@ -27,6 +39,7 @@ public class SlashServerCommand extends Command {
         }
 
         if (!(sender instanceof ProxiedPlayer)) {
+            sender.sendMessage(new TextComponent(SlashServer.PREFIX + ChatColor.RED + "You must be a player do to this."));
             return;
         }
 
